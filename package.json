@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Le-TRex/D13NodeJS/issues"
   },
-  "homepage": "https://github.com/Le-TRex/D13NodeJS#readme"
+  "homepage": "https://github.com/Le-TRex/D13NodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
