@@ -1,3 +1,4 @@
 .history/
 .vscode
 docs/file2.txt
+node_modules
