@@ -12,3 +12,7 @@ const fs = require("fs");
 fs.writeFile("./docs/file1.txt", "Nouveau texte", () => {
     console.log("File written");
 });
+
+fs.mkdir("./newDirectory", () => {
+    console.log("Dossier créé");
+})
