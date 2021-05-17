@@ -8,4 +8,5 @@ setTimeout(()=>{
     clearInterval(intervalId)
 },3500);
 
+/* global est un objet fourni par Node équivalent à l'objet window sur le navigateur */
 console.log(global);
