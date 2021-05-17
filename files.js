@@ -24,6 +24,8 @@ if(!fs.existsSync(directory)) {
         }
     })
 } else {
-    console.log("directory already exists")
+    fs.rmdir(directory, () => {
+        console.log("Directory deleted")
+    })
 }
 
