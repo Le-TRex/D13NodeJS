@@ -7,8 +7,10 @@ const writeStream = fs.createWriteStream("./docs/file2.txt");
 
 
 /* chunk = morceau de data */
-readStream.on('data', chunk => {
+/* readStream.on('data', chunk => {
     writeStream.write(chunk, (err) => {
         console.log("message écrit")
     })
-});
+}); */
+
+readStream.pipe(writeStream);
