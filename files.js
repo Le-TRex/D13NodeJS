@@ -13,7 +13,7 @@ const fs = require("fs");
     console.log("File written");
 }); */
 
-const directory = "./newDirectory"
+/* const directory = "./newDirectory"
 
 if(!fs.existsSync(directory)) {
     fs.mkdir(directory, (err) => {
@@ -27,5 +27,12 @@ if(!fs.existsSync(directory)) {
     fs.rmdir(directory, () => {
         console.log("Directory deleted")
     })
-}
+} */
 
+fs.unlink("./docs/file1.txt", (err) => {
+    if(err){
+        console.log(err);
+    }else{
+        console.log("file deleted");
+    }
+})
