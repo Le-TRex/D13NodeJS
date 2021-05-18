@@ -1,6 +1,16 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
+
+const dbUri = "mongodb://localhost:27017";
+mongoose.connect(dbUri, {useUnifiedTopology: true, useNewUrlParser: true}, (error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Connected to DB");
+  }
+})
 
 app.listen(3002);
 
@@ -17,7 +27,7 @@ app.get("/", (request, response) => {
   //response.sendFile("./views/home.ejs", { root: __dirname});
   const people = [{name:'Robert', sayHello: true},
                   {name: 'René', sayHello: false},
-                  {name: 'Robinet', sayHello: true}];
+                  {name: 'Richard', sayHello: true}];
   response.render("home", {people: people, test: 'Yo les haricots ! '});
   //render page home + valeur de la variable test
 })
