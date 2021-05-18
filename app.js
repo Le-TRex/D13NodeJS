@@ -4,9 +4,8 @@ const mongoose = require("mongoose");
 const app = express();
 
 const dbUri = "mongodb://localhost:27017";
-const mongoosePromise = mongoose.connect(dbUri, {useUnifiedTopology: true, useNewUrlParser: true}); //promise = un objet
-
-mongoosePromise.then(() => {console.log("Connected to DB")}) //promise.then => quand la promise est résolue, faire xxx
+mongoose.connect(dbUri, {useUnifiedTopology: true, useNewUrlParser: true}) //promise = un objet
+  .then(() => {console.log("Connected to DB")}) //promise.then => quand la promise est résolue, faire xxx
   .catch(error => console.log(error)); //catch attrape les erreurs et permet de les traiter
 
 app.listen(3002);
