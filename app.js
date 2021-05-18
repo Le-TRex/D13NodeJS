@@ -15,7 +15,10 @@ app.use((request, resopnse, next) => {
 
 app.get("/", (request, response) => {
   //response.sendFile("./views/home.ejs", { root: __dirname});
-  response.render("home", {test: "hello"});
+  const people = [{name:'Robert', sayHello: true},
+                  {name: 'René', sayHello: false},
+                  {name: 'Robinet', sayHello: true}];
+  response.render("home", {people: people, test: 'Yo les haricots ! '});
   //render page home + valeur de la variable test
 })
 

@@ -1,12 +1,36 @@
 <%- include("partials/head.ejs") %>
+<%- include("partials/navbar.ejs") %>
 
 <body>
   <h1>Accueil</h1>
 
-  <!-- "import" de test depuis app.js -->
-  <p> <%=test %> </p>
-
+  <p><%=test%></p>
   <p>Tralala pouet pouet ici c'est la homepage</p>
+
+  <div>
+    <% people.forEach(person => { %>
+      
+      <% if(person.sayHello){ %>
+
+        <p>Hello <%= person.name %> </p>
+
+      <% } else { %>
+
+        <p> <%= person.name %> is very malpoli ! </p>
+
+      <% } %>
+    <% }); %>
+  </div>
+
+
+  <div>
+    <% people.forEach(person => { %> 
+      <ul>
+        <li> <%= person.name %> </li>
+      </ul>
+    <%});%>
+  </div>
+
 
 </body>
 
