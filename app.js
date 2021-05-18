@@ -1,18 +1,33 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Person = require("./person");
 
 const app = express();
 
 const dbUri = "mongodb://localhost:27017";
 mongoose.connect(dbUri, {useUnifiedTopology: true, useNewUrlParser: true}) //promise = un objet
-  .then(() => {console.log("Connected to DB")}) //promise.then => quand la promise est résolue, faire xxx
+  .then(() => app.listen(3002)) //promise.then => quand la promise est résolue, faire xxx
   .catch(error => console.log(error)); //catch attrape les erreurs et permet de les traiter
 
-app.listen(3002);
+Person.create({
+  firstname: "Richard",
+  lastname: "Coeur De Lion",
+  age: 863
+});
 
-app.set('view engine', 'ejs');
+Person.find().then(result => {
+  console.log(result);
+})
+
+
+
+Person.findById("60a3c8b0b9620ab4b6face3f").then(result => {
+  console.log("FindById", result);
+})
 
 app.use(express.static("public"));
+app.set('view engine', 'ejs');
+
 
 app.use((request, resopnse, next) => {
   console.log(request.url, request.method);
