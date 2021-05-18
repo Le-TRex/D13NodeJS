@@ -2,13 +2,13 @@
   "name": "d13nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "nodemon app.js",
     "commentaire": "remplacer node server.js par nodemon server.js pour faire démarrer l'app avec nodemon"
   },
   "repository": {
