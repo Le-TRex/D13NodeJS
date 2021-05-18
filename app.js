@@ -4,6 +4,8 @@ const app = express();
 
 app.listen(3002);
 
+app.set('view engine', 'ejs');
+
 app.use(express.static("public"));
 
 app.use((request, resopnse, next) => {
@@ -12,14 +14,18 @@ app.use((request, resopnse, next) => {
 })
 
 app.get("/", (request, response) => {
-  response.sendFile("./views/home.html", { root: __dirname});
+  //response.sendFile("./views/home.ejs", { root: __dirname});
+  response.render("home", {test: "hello"});
+  //render page home + valeur de la variable test
 })
 
 app.get("/about", (request, response) => {
-  response.sendFile("./views/about.html", { root: __dirname});
+  response.render("about");
+  //response.sendFile("./views/about.ejs", { root: __dirname});
 })
 
 /* Use doit être APRÈS les app.xxx */
 app.use((request, response) => {
-  response.status(404).sendFile("./views/404.html", { root: __dirname})
+  response.status(404).render("404");
+  //response.status(404).sendFile("./views/404.ejs", { root: __dirname})
 });
