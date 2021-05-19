@@ -15,6 +15,17 @@ Person.create({
   age: 863
 });
 
+//Example
+// const toto = new Person({
+//   firstname: "Toto",
+//   lastname: "Haricot",
+//   age: 6
+// })
+
+// toto.save().then(result => {
+//   console.log(result);
+// })
+
 Person.find().then(result => {
   console.log(result);
 })
